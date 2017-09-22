@@ -4,10 +4,11 @@ require 'nokogiri'
 
 require "healthkit/parser/version"
 require "healthkit/parser/record"
+require "healthkit/parser/workout"
 
 module Healthkit
   module Parser
-    ELEMENT_NAMES = [:record]
+    ELEMENT_NAMES = [:record, :workout]
 
     def self.parse(xml, element_names: ELEMENT_NAMES)
       element_names = element_names.map(&:to_s).map(&:camelize)

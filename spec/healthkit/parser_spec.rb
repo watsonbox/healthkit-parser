@@ -10,8 +10,11 @@ describe Healthkit::Parser do
     subject { described_class.parse(xml) }
 
     it "correctly parses an export file" do
-      expect(subject.count).to eq 9
-      expect(subject.map(&:class).uniq).to eq [Healthkit::Parser::Record]
+      expect(subject.count).to eq 11
+      expect(subject.map(&:class).uniq).to eq [
+        Healthkit::Parser::Record,
+        Healthkit::Parser::Workout
+      ]
     end
 
     context "the export version is not supported" do
