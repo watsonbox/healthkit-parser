@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HealthData [
+<!-- HealthKit Export Version: 3 -->
+<!ELEMENT HealthData (ExportDate,Me,(Record|Correlation|Workout|ActivitySummary)*)>
+<!ATTLIST HealthData
+  locale CDATA #REQUIRED
+>
+<!ELEMENT ExportDate EMPTY>
+<!ATTLIST ExportDate
+  value CDATA #REQUIRED
+>
+<!ELEMENT Me EMPTY>
+<!ATTLIST Me
+  HKCharacteristicTypeIdentifierDateOfBirth         CDATA #REQUIRED
+  HKCharacteristicTypeIdentifierBiologicalSex       CDATA #REQUIRED
+  HKCharacteristicTypeIdentifierBloodType           CDATA #REQUIRED
+  HKCharacteristicTypeIdentifierFitzpatrickSkinType CDATA #REQUIRED
+>
+<!ELEMENT Record (MetadataEntry*)>
+<!ATTLIST Record
+  type          CDATA #REQUIRED
+  unit          CDATA #IMPLIED
+  value         CDATA #IMPLIED
+  sourceName    CDATA #REQUIRED
+  sourceVersion CDATA #IMPLIED
+  device        CDATA #IMPLIED
+  creationDate  CDATA #IMPLIED
+  startDate     CDATA #REQUIRED
+  endDate       CDATA #REQUIRED
+>
+<!-- Note: Any Records that appear as children of a correlation also appear as top-level records in this document. -->
+<!ELEMENT Correlation ((MetadataEntry|Record)*)>
+<!ATTLIST Correlation
+  type          CDATA #REQUIRED
+  sourceName    CDATA #REQUIRED
+  sourceVersion CDATA #IMPLIED
+  device        CDATA #IMPLIED
+  creationDate  CDATA #IMPLIED
+  startDate     CDATA #REQUIRED
+  endDate       CDATA #REQUIRED
+>
+<!ELEMENT Workout ((MetadataEntry|WorkoutEvent)*)>
+<!ATTLIST Workout
+  workoutActivityType   CDATA #REQUIRED
+  duration              CDATA #IMPLIED
+  durationUnit          CDATA #IMPLIED
+  totalDistance         CDATA #IMPLIED
+  totalDistanceUnit     CDATA #IMPLIED
+  totalEnergyBurned     CDATA #IMPLIED
+  totalEnergyBurnedUnit CDATA #IMPLIED
+  sourceName            CDATA #REQUIRED
+  sourceVersion         CDATA #IMPLIED
+  device                CDATA #IMPLIED
+  creationDate          CDATA #IMPLIED
+  startDate             CDATA #REQUIRED
+  endDate               CDATA #REQUIRED
+>
+<!ELEMENT WorkoutEvent EMPTY>
+<!ATTLIST WorkoutEvent
+  type CDATA #REQUIRED
+  date CDATA #REQUIRED
+>
+<!ELEMENT ActivitySummary EMPTY>
+<!ATTLIST ActivitySummary
+  dateComponents           CDATA #IMPLIED
+  activeEnergyBurned       CDATA #IMPLIED
+  activeEnergyBurnedGoal   CDATA #IMPLIED
+  activeEnergyBurnedUnit   CDATA #IMPLIED
+  appleExerciseTime        CDATA #IMPLIED
+  appleExerciseTimeGoal    CDATA #IMPLIED
+  appleStandHours          CDATA #IMPLIED
+  appleStandHoursGoal      CDATA #IMPLIED
+>
+<!ELEMENT MetadataEntry EMPTY>
+<!ATTLIST MetadataEntry
+  key   CDATA #REQUIRED
+  value CDATA #REQUIRED
+>
+]>
+<HealthData locale="en_GB">
+ <ExportDate value="2017-09-19 15:23:06 +0200"/>
+ <Me HKCharacteristicTypeIdentifierDateOfBirth="1986-03-03" HKCharacteristicTypeIdentifierBiologicalSex="HKBiologicalSexNotSet" HKCharacteristicTypeIdentifierBloodType="HKBloodTypeNotSet" HKCharacteristicTypeIdentifierFitzpatrickSkinType="HKFitzpatrickSkinTypeNotSet"/>
+ <Record type="HKQuantityTypeIdentifierBloodPressureSystolic" sourceName="Health" sourceVersion="10.0.1" unit="mmHg" creationDate="2017-09-12 00:44:51 +0200" startDate="2017-09-07 11:15:00 +0200" endDate="2017-09-07 11:15:00 +0200" value="118">
+  <MetadataEntry key="HKWasUserEntered" value="1"/>
+ </Record>
+ <Record type="HKQuantityTypeIdentifierBloodPressureDiastolic" sourceName="Health" sourceVersion="10.0.1" unit="mmHg" creationDate="2017-09-12 00:44:51 +0200" startDate="2017-09-07 11:15:00 +0200" endDate="2017-09-07 11:15:00 +0200" value="66">
+  <MetadataEntry key="HKWasUserEntered" value="1"/>
+ </Record>
+ <Record type="HKQuantityTypeIdentifierStepCount" sourceName="iPhone" sourceVersion="9.3.1" device="&lt;&lt;HKDevice: 0x174299000&gt;, name:iPhone, manufacturer:Apple, model:iPhone, hardware:iPhone8,4, software:9.3.1&gt;" unit="count" creationDate="2016-04-07 19:05:29 +0200" startDate="2016-04-07 18:10:35 +0200" endDate="2016-04-07 18:15:22 +0200" value="31"/>
+ <Record type="HKQuantityTypeIdentifierDistanceWalkingRunning" sourceName="iPhone" sourceVersion="9.3.1" device="&lt;&lt;HKDevice: 0x174c803c0&gt;, name:iPhone, manufacturer:Apple, model:iPhone, hardware:iPhone8,4, software:9.3.1&gt;" unit="km" creationDate="2016-04-07 19:05:29 +0200" startDate="2016-04-07 18:10:35 +0200" endDate="2016-04-07 18:15:22 +0200" value="0.02176"/>
+ <Record type="HKQuantityTypeIdentifierActiveEnergyBurned" sourceName="Strava" sourceVersion="8846" unit="kcal" creationDate="2017-09-11 20:34:27 +0200" startDate="2017-08-02 19:34:56 +0200" endDate="2017-08-02 20:02:36 +0200" value="388.3">
+  <MetadataEntry key="HKExternalUUID" value="strava://activities/1114160356"/>
+ </Record>
+ <Record type="HKQuantityTypeIdentifierDistanceCycling" sourceName="Strava" sourceVersion="8846" unit="km" creationDate="2017-09-11 20:34:27 +0200" startDate="2017-09-05 10:18:07 +0200" endDate="2017-09-05 10:51:17 +0200" value="3.3808">
+  <MetadataEntry key="HKExternalUUID" value="strava://activities/1169101854"/>
+ </Record>
+ <Record type="HKCategoryTypeIdentifierSleepAnalysis" sourceName="Clock" sourceVersion="50" device="&lt;&lt;HKDevice: 0x171098470&gt;, name:iPhone, manufacturer:Apple, model:iPhone, hardware:iPhone8,4, software:10.0.1&gt;" creationDate="2016-09-23 09:00:27 +0200" startDate="2016-09-23 07:18:36 +0200" endDate="2016-09-23 08:54:40 +0200" value="HKCategoryValueSleepAnalysisInBed">
+  <MetadataEntry key="_HKPrivateSleepAlarmUserWakeTime" value="2016-09-24 07:00:00 +0000"/>
+  <MetadataEntry key="_HKPrivateSleepAlarmUserSetBedtime" value="2016-09-21 22:00:00 +0000"/>
+  <MetadataEntry key="HKTimeZone" value="Europe/Moscow"/>
+ </Record>
+ <Correlation type="HKCorrelationTypeIdentifierBloodPressure" sourceName="Health" sourceVersion="10.0.1" creationDate="2017-09-12 00:44:51 +0200" startDate="2017-09-07 11:15:00 +0200" endDate="2017-09-07 11:15:00 +0200">
+  <MetadataEntry key="HKWasUserEntered" value="1"/>
+  <Record type="HKQuantityTypeIdentifierBloodPressureDiastolic" sourceName="Health" sourceVersion="10.0.1" unit="mmHg" creationDate="2017-09-12 00:44:51 +0200" startDate="2017-09-07 11:15:00 +0200" endDate="2017-09-07 11:15:00 +0200" value="66">
+   <MetadataEntry key="HKWasUserEntered" value="1"/>
+  </Record>
+  <Record type="HKQuantityTypeIdentifierBloodPressureSystolic" sourceName="Health" sourceVersion="10.0.1" unit="mmHg" creationDate="2017-09-12 00:44:51 +0200" startDate="2017-09-07 11:15:00 +0200" endDate="2017-09-07 11:15:00 +0200" value="118">
+   <MetadataEntry key="HKWasUserEntered" value="1"/>
+  </Record>
+ </Correlation>
+ <Workout workoutActivityType="HKWorkoutActivityTypeCycling" duration="8.966666666666667" durationUnit="min" totalDistance="2.858" totalDistanceUnit="km" totalEnergyBurned="0" totalEnergyBurnedUnit="kcal" sourceName="Strava" sourceVersion="8846" creationDate="2017-09-11 20:34:27 +0200" startDate="2017-09-07 22:29:37 +0200" endDate="2017-09-07 22:38:35 +0200">
+  <MetadataEntry key="HKExternalUUID" value="strava://activities/1173247875"/>
+ </Workout>
+ <Workout workoutActivityType="HKWorkoutActivityTypeRunning" duration="24.41666666666667" durationUnit="min" totalDistance="4.422" totalDistanceUnit="km" totalEnergyBurned="372.7000122070312" totalEnergyBurnedUnit="kcal" sourceName="Strava" sourceVersion="8846" creationDate="2017-09-11 23:52:15 +0200" startDate="2017-09-11 20:33:14 +0200" endDate="2017-09-11 20:57:52 +0200">
+  <MetadataEntry key="HKExternalUUID" value="strava://activities/1179616468"/>
+ </Workout>
+</HealthData>
