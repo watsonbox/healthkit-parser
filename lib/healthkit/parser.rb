@@ -11,7 +11,7 @@ module Healthkit
   module Parser
     ELEMENT_NAMES = [:record, :workout]
 
-    def self.parse(xml, element_names: ELEMENT_NAMES)
+    def self.parse(xml, element_names: ELEMENT_NAMES, created_after: nil)
       element_names = element_names.map(&:to_s).map(&:camelize)
 
       Nokogiri::XML::Reader(xml).map do |node|
@@ -23,8 +23,9 @@ module Healthkit
           end
         end
 
-        if element_names.include?(node.name) && node.node_type == Nokogiri::XML::Reader::TYPE_ELEMENT
-          "Healthkit::Parser::#{node.name.camelize}".constantize.parse(node.outer_xml)
+        if node.node_type == Nokogiri::XML::Reader::TYPE_ELEMENT && element_names.include?(node.name)
+          object = "Healthkit::Parser::#{node.name.camelize}".constantize.parse(node.outer_xml)
+          object if created_after.nil? || object.creation_date > created_after
         end
       end.compact
     end

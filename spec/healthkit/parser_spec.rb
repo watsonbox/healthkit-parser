@@ -24,5 +24,13 @@ describe Healthkit::Parser do
         expect { subject }.to raise_exception "HealthKit Export Version: 4 is not supported"
       end
     end
+
+    context "with created_after filter" do
+      subject { described_class.parse(xml, created_after: Time.parse("2017-09-11 20:34:27 +0200")) }
+
+      it "only includes entries created after specified time" do
+        expect(subject.count).to eq 5
+      end
+    end
   end
 end
