@@ -6,6 +6,7 @@ require 'nokogiri'
 require "healthkit/parser/version"
 require "healthkit/parser/record"
 require "healthkit/parser/workout"
+require "healthkit/parser/correlation"
 
 module Healthkit
   module Parser
