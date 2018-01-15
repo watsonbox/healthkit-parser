@@ -1,7 +1,7 @@
 module Healthkit
   module Parser
     class Record
-      ATTRIBUTES = :type, :source_name, :source_version, :device, :unit, :creation_date, :start_date, :end_date, :value
+      ATTRIBUTES = :type, :source_name, :source_version, :device, :unit, :creation_date, :start_date, :end_date, :value, :xml
       REQUIRED_ATTRIBUTES = :type, :source_name, :start_date, :end_date
 
       attr_accessor *ATTRIBUTES
@@ -30,6 +30,7 @@ module Healthkit
           record.start_date = Time.parse(node[:startDate])
           record.end_date = Time.parse(node[:endDate])
           record.value = node[:value]
+          record.xml = xml_string_or_node.to_s
         end
       end
     end

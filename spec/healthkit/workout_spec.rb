@@ -18,6 +18,7 @@ describe Healthkit::Parser::Workout do
         expect(workout.creation_date).to eq Time.parse("2017-09-11 23:52:15 +0200")
         expect(workout.start_date).to eq Time.parse("2017-09-11 20:33:14 +0200")
         expect(workout.end_date).to eq Time.parse("2017-09-11 20:57:52 +0200")
+        expect(workout.xml).to eq xml.to_s
       end
     end
 

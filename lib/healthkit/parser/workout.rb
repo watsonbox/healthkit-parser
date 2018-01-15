@@ -1,7 +1,7 @@
 module Healthkit
   module Parser
     class Workout
-      ATTRIBUTES = :workout_activity_type, :duration, :duration_unit, :total_distance, :total_distance_unit, :total_energy_burned, :total_energy_burned_unit, :source_name, :source_version, :device, :creation_date, :start_date, :end_date
+      ATTRIBUTES = :workout_activity_type, :duration, :duration_unit, :total_distance, :total_distance_unit, :total_energy_burned, :total_energy_burned_unit, :source_name, :source_version, :device, :creation_date, :start_date, :end_date, :xml
       REQUIRED_ATTRIBUTES = :workout_activity_type, :source_name, :start_date, :end_date
 
       attr_accessor *ATTRIBUTES
@@ -34,6 +34,7 @@ module Healthkit
           workout.creation_date = Time.parse(node[:creationDate]) if node[:creationDate]
           workout.start_date = Time.parse(node[:startDate])
           workout.end_date = Time.parse(node[:endDate])
+          workout.xml = xml_string_or_node.to_s
         end
       end
     end

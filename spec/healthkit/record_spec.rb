@@ -15,6 +15,7 @@ describe Healthkit::Parser::Record do
         expect(record.start_date).to eq Time.parse("2016-04-07 19:56:55 +0200")
         expect(record.end_date).to eq Time.parse("2016-04-07 20:01:56 +0200")
         expect(record.value).to eq "154"
+        expect(record.xml).to eq xml.to_s
       end
     end
 
